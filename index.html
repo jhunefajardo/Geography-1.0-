@@ -1,0 +1,143 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+	<title>QUIZ MAIN index.html</title>
+	
+	<!-- boostrap modal START-->
+	<link href="css/bootstrap.css" rel="stylesheet" />
+	<link href="css/prettify.css" rel="stylesheet" />
+	
+	<link href="css/bootstrap-responsive.css" rel="stylesheet" />
+	<link href="css/bootstrap-modal.css" rel="stylesheet" />
+	<!-- boostrap modal END-->
+	
+	
+	
+	<script type="text/javascript" src="js/jq.js"></script><!-- jquery script -->
+	<link rel="stylesheet" href="css/style-custom.css"><!-- custom style -->
+	<script type="text/javascript" src="js/quizArray.js"></script>
+	<style>
+	body{
+		background: url('img/bgnew.gif')no-repeat top center;
+		background-size:cover;
+		background-repeat: no-repeat;
+		background-attachment: fixed;
+		background-position: center; 
+		
+	}
+	h1{
+		font-family:arial;
+		color:blue;
+		font-size:2em;
+	}
+	h2{
+		font-family:arial;
+		color:black;
+		font-size:2em;
+	}
+	h3{
+		font-family:arial;
+		color:blue;
+		font-size:1em;
+	}
+	.btn-menu{
+		background-color:black;
+		width:100%;
+		font-size:1.5em;
+		font-family:calibri;
+		color:white;		
+		width:100%;
+		 -webkit-border-top-left-radius: 250px;	
+		-webkit-border-top-right-radius: 250px;
+		-webkit-border-bottom-left-radius: 250px;
+		-webkit-border-bottom-right-radius: 250px;
+		
+	}
+	
+	input
+	{
+		font-size:2em;
+		font-family:calibri;
+		 background-color: black;
+		  -webkit-border-top-left-radius: 250px;	
+		-webkit-border-top-right-radius: 250px;
+		-webkit-border-bottom-left-radius: 250px;
+		-webkit-border-bottom-right-radius: 250px;
+		width: 100%; height: 50px;
+		color:white;	
+		margin-top:10px;
+	}
+	button
+	{
+		font-size:2em;
+		font-family:calibri;
+		 background-color: black;
+		  -webkit-border-top-left-radius: 10px;	
+		-webkit-border-top-right-radius: 10px;
+		-webkit-border-bottom-left-radius: 10px;
+		-webkit-border-bottom-right-radius: 10px;
+		width: 100%; height: 50px;
+		color:white;		
+	}
+	
+	</style>
+</head>
+<body>
+	<div data-role="header" data-position="fixed" data-add-back-btn="false">
+			
+		<div class="btn-menu" data-position="fixed" style="vertical-align:middle"><center><img src="img/banner.png" style="max-width:100%background:black;"></center></div>
+									
+							</div>
+	<div id="index_modal_container" class="index_modal_container modal hide fade" data-backdrop="static" tabindex="-1" data-keyboard="false">
+		</div>	
+	<div id="splashScreen">	</div>
+	<div class="splashImg"><img class="splashImgLogo" src="img/splashscreen.png" alt="" class="img-thumbnail"/></div>
+	<center>
+		<br />
+		<br />
+		<input id="btn-play" type="button" value="Play" /><br />
+		<input id="btn-leaderboard" type="button" value="Leaderboard" /><br /><br />
+		<p style="font:arial;font-size:1.5em;color:white;font-weight:bold;" id="txt-username"></p>
+		<input id="btn-login" class="btn-login" type="button" value="Login" /><br /><br /><br /><br />
+		<button class="btn-about" style="position:fixed;left:0;bottom:0;background:black;color:white;">About</button>
+
+	</center>
+	
+	<script type="text/javascript" src="js/jq-custom.js"></script><!--custom jq script for for functions and variables-->
+	<!-- boostrap modal JS  START-->
+	<script src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/prettify.js"></script>
+    <script src="js/bootstrap.js"></script>
+    <script src="js/bootstrap-modalmanager.js"></script>
+    <script src="js/bootstrap-modal.js"></script>
+	<!-- boostrap modal JS  END-->
+	
+	<script type="text/javascript">
+		$(document).ready(function(){
+			
+			splashScreenIntro();//splash screen function --index.html
+			checkIfLogin();//--index.html
+			storeQuizArrayToLocalStorage();//store quizArray to localStorage --index.html
+		
+		});
+		
+	</script>
+	<script id="ajax" type="text/javascript">
+		var $modal = $('#index_modal_container');
+
+		$('#test').on('click', function(){
+		  // create the backdrop and wait for next modal to be triggered
+		  //$('body').modalmanager('loading');<!-- para sa loading-->
+
+		  setTimeout(function(){
+			 $modal.load('game_over_page.html', '', function(){
+			  $modal.modal();
+			});
+		  },10);<!-- time out kung gano katagal 1000 ung original-->
+		});
+		
+	</script>	
+	
+</body>
+</html>
